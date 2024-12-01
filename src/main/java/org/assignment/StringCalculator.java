@@ -1,26 +1,24 @@
 package org.assignment;
 
-
 public class StringCalculator {
-    public int add(String numbers) {
-        int lengthOfNumbers = numbers.length();
-        if (lengthOfNumbers < 2) {
-            int num = (numbers.isEmpty()) ? 0 : Integer.parseInt(numbers);
-            return num;
 
-        } else {
-            String delimeter = ",";
-            if (numbers.matches("//(.*)\n(.*)")) {
-                delimeter = Character.toString(numbers.charAt(2));
-                numbers = numbers.substring(4);
-            }
-            String[] splitNumbers = splitNumber(numbers, delimeter + "|\n");
-            return sum(splitNumbers);
+    private static final String DEFAULT_DELIMITER = ",|\n";
+
+    public int add(String numbers) {
+        if (numbers == null || numbers.isEmpty()) return 0;
+        String delimeter = DEFAULT_DELIMITER;
+        if (numbers.matches("//(.*)\n(.*)")) {
+            delimeter = Character.toString(numbers.charAt(2));
+            if(!delimeter.equals(";")) throw new IllegalArgumentException("Invalid Test");
+            numbers = numbers.substring(4);
         }
+
+        String[] splitNumbers = splitNumbers(numbers, delimeter);
+        return sum(splitNumbers);
     }
 
-    private String[] splitNumber(String numbers, String delimeter) {
-        return numbers.split(delimeter);
+    private String[] splitNumbers(String numbers, String delimiter) {
+        return numbers.split(delimiter);
     }
 
     private int sum(String[] numbers) {
