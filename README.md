@@ -16,3 +16,6 @@
 
 > Start with simplest testcase of a number this will return it.
 * input -> "1" : ans -> 1 
+
+> Start with simplest testcase of a number this will add up.
+* input -> "1" : ans -> 1 , input -> "1,2" : ans -> 3

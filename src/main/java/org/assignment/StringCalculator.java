@@ -1,11 +1,18 @@
 package org.assignment;
 
+import java.util.Arrays;
+
 public class StringCalculator {
     public int add(String numbers) {
-        if (numbers.isEmpty()) {
-            return 0;
+        int lengthOfNumbers = numbers.length();
+        if (lengthOfNumbers < 2) {
+            if (numbers.isEmpty()) {
+                return 0;
+            } else {
+                return Integer.parseInt(numbers);
+            }
         } else {
-            return Integer.parseInt(numbers);
+            return Arrays.stream(numbers.split(",")).mapToInt(num -> Integer.parseInt(num)).sum();
         }
     }
 }

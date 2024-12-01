@@ -12,4 +12,11 @@ public class StringCalculatorTest {
         assertEquals(1, simpleCalculator.add("1"));
         assertEquals(2, simpleCalculator.add("2"));
     }
+    @Test
+    public void testAddMultipleNumbers() {
+        StringCalculator simpleCalculator = new StringCalculator();
+        assertEquals(3, simpleCalculator.add("1,2"));
+        assertEquals(200, simpleCalculator.add("50,150"));
+        assertEquals(200, simpleCalculator.add("50,120,30"));
+    }
 }
