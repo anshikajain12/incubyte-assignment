@@ -25,4 +25,28 @@ public class StringCalculatorTest {
         assertEquals(10, simpleCalculator.add("1\n2,3\n4"));
         assertEquals(1, simpleCalculator.add("1,\n"));
     }
+    @Test
+    public void testNegativeNumber() {
+        StringCalculator simpleCalculator = new StringCalculator();
+        try {
+            simpleCalculator.add("-1,2");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Negatives not allowed: -1");
+        }
+        try {
+            simpleCalculator.add("1,-2,3,-5");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Negatives not allowed: -2,-5");
+        }
+    }
+    @Test
+    public void testOverThousand() {
+        StringCalculator simpleCalculator = new StringCalculator();
+        assertEquals(10, simpleCalculator.add("1000,10"));
+    }
+    @Test
+    public void testOtherDelimiter() {
+        StringCalculator simpleCalculator = new StringCalculator();
+        assertEquals(3, simpleCalculator.add("//;\n1;2"));
+    }
 }

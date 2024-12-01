@@ -23,3 +23,13 @@
 > Allow the Add method to handle new lines between numbers (instead of commas)
 * input: “1\n2,3” should return 6.
 * input: “1,\n” should return 1.
+
+> Numbers bigger than 1000 should be ignored.
+* input -> “1001,2” returns 2
+
+> Allow the Add method to handle a different delimiter.
+* input -> “//;\n1;2” should return 3 (the delimiter is ;)
+
+> Add with a negative number will throw an exception “Negatives not allowed: “ listing all negative numbers that were in the list of numbers.
+* input -> “-1,2” throws “Negatives not allowed: -1”
+* input -> “2,-4,3,-5” throws “Negatives not allowed: -4,-5”
