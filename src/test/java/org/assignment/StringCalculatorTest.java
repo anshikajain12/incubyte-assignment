@@ -19,4 +19,10 @@ public class StringCalculatorTest {
         assertEquals(200, simpleCalculator.add("50,150"));
         assertEquals(200, simpleCalculator.add("50,120,30"));
     }
+    @Test
+    public void testNewLine(){
+        StringCalculator simpleCalculator = new StringCalculator();
+        assertEquals(10, simpleCalculator.add("1\n2,3\n4"));
+        assertEquals(1, simpleCalculator.add("1,\n"));
+    }
 }

@@ -12,7 +12,13 @@ public class StringCalculator {
                 return Integer.parseInt(numbers);
             }
         } else {
-            return Arrays.stream(numbers.split(",")).mapToInt(num -> Integer.parseInt(num)).sum();
+            String delimeter=",";
+            String[] splitNumbers = splitNumber(numbers,delimeter + "|\n");
+            return Arrays.stream(splitNumbers).mapToInt(num -> Integer.parseInt(num)).sum();
         }
+    }
+
+    private String[] splitNumber(String numbers, String delimeter) {
+        return numbers.split(delimeter);
     }
 }

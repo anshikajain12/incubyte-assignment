@@ -19,3 +19,7 @@
 
 > Start with simplest testcase of a number this will add up.
 * input -> "1" : ans -> 1 , input -> "1,2" : ans -> 3
+
+> Allow the Add method to handle new lines between numbers (instead of commas)
+* input: “1\n2,3” should return 6.
+* input: “1,\n” should return 1.
